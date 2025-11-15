@@ -1,18 +1,19 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Optional
 
 class UserCreate(BaseModel):
-    email: str
+    email: EmailStr
     password: str
 
 class UserLogin(BaseModel):
-    email: str
+    email: EmailStr
     password: str
 
 class UserResponse(BaseModel):
     id: int
-    email: str
+    email: EmailStr
     is_admin: int
+    is_verified: bool
 
     class Config:
         from_attributes = True
